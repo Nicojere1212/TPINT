@@ -48,81 +48,52 @@
 
     <div class="contenido">
         <div class="trailer">
-            <iframe src="https://www.youtube.com/embed/ykLTd5aTa88" title="Trailer El Eternauta"
-                allowfullscreen id="iframe"></iframe>
+            <iframe allowfullscreen id="iframe"></iframe>
             <br>
-            <button class="button"
-                onclick="window.open('https://www.youtube.com/watch?v=ykLTd5aTa88', '_blank')">Comenzar</button>
+            <button class="button" id="linkComenzar">Comenzar</button>
         </div>
 
         <div class="detalles">
             <div class="detalles-serie">
-                <div class="fila"><strong>Título:</strong> <span id="titulo">El Eternauta</span></div>
+                <div class="fila"><strong>Título:</strong> <span id="titulo"></span></div>
                 <div class="lista">
-                        <label for="temporadas">Temporadas:</label>
-                        <select id="selectTemporadas">
-                            <option value="" disabled selected></option>
-                        </select>
-                        <label for="capitulos">Capítulo:</label>
-                        <select id="selectCapitulos">
-                            <option value="" disabled selected></option>
-                        </select>
+                    <label for="temporadas">Temporadas:</label>
+                    <select id="selectTemporadas">
+                        <option value="" disabled selected></option>
+                    </select>
+                    <label for="capitulos">Capítulo:</label>
+                    <select id="selectCapitulos">
+                        <option value="" disabled selected></option>
+                    </select>
                 </div>
                 <div class="fila"><strong>Género:</strong> <span id="genero">Ciencia ficción</span></div>
-                <div class="fila"><strong>Actores:</strong> <span><a
-                            href="https://es.wikipedia.org/wiki/Ricardo_Dar%C3%ADn" target="_blank" id="actor1">Ricardo Darín</a>,
-                        <a href="https://es.wikipedia.org/wiki/Ariel_Staltari" target="_blank" id="actor2">Ariel Staltari</a>,
-                        <a href="https://es.wikipedia.org/wiki/C%C3%A9sar_Troncoso" target="_blank" id="actor3">César Troncoso</a>,
-                        <a href="https://es.wikipedia.org/wiki/Carla_Peterson" target="_blank" id="actor4">Carla Peterson</a>
-                        </span>
+                <div class="fila"><strong>Actores:</strong> <span>
+                        <a id="actor1"></a>,
+                        <a id="actor2"></a>,
+                        <a id="actor3"></a>,
+                        <a id="actor4"></a>
+                    </span>
                 </div>
             </div>
 
-            <p class="sinopsis" id="descripcion">
-                La serie cuenta la historia de una invasión alienígena a la Tierra,
-                la cual utiliza una tormenta de nieve tóxica para aniquilar a la mayor parte de la población.
-                En Buenos Aires se genera una resistencia a la invasión, encabezada por Juan Salvo, veterano de la
-                guerra de Malvinas,
-                su amigo de la infancia Alfredo Favalli, y distintos personajes que aportan su valor
-                humano para la supervivencia colectiva.
-            </p>
+            <p class="sinopsis" id="descripcion"></p>
         </div>
     </div>
 
     <div class="similares">
         <h3>Similares</h3>
-        <ul>
-            <li>
-                <a href="detalle-series.html">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMmZhODY0ZGItNTEzZC00YjMxLWE3YTQtNTVlMjkxYmQyMDE4XkEyXkFqcGc@._V1_.jpg"
-                        alt="Black Mirror">
-                </a>
-            </li>
-            <li>
-                <a href="detalle-series.html">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMWUyOGQ5ZDItY2FiNC00ZDQ5LWI4ZjUtOTM3ZjNiNTNlNDJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-                        alt="Cosmos">
-                </a>
-            </li>
-            <li>
-                <a href="detalle-series.html">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-                        alt="Cowoy Bepop">
-                </a>
-            </li>
-            <li>
-                <a href="detalle-series.html">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTExNzk2NjcxNTNeQTJeQWpwZ15BbWU4MDcxOTczOTIx._V1_FMjpg_UX1000_.jpg"
-                        alt="Twin Peaks">
-                </a>
-            </li>
-        </ul>
+        <div class="carrusel-contenedor">
+            <button class="flecha izquierda" id="btnIzquierda">&#10094;</button>
+            <div class="carrusel" id="carruselSimilares"></div>
+            <button class="flecha derecha" id="btnDerecha">&#10095;</button>
+        </div>
     </div>
+
     <script src="json-data/series.js"></script>
     <script src="JavaScript/Series.js"></script>
 
     <footer class="footer">
-        <p>Creado por Marcos Diaz, Alejo Gonzalez, Franco Nicolas Perez, Nicolas Reynoso  </p>
+        <p>Creado por Marcos Diaz, Alejo Gonzalez, Franco Nicolas Perez, Nicolas Reynoso </p>
 </body>
 
 </html>

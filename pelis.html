@@ -49,8 +49,6 @@
         <div class="FilterAndSerach">
             <ul class="ListaCategorias">
                 <li class="Categoria"><a class="buttons__secondary"
-                        href="file:///C:/Users/pc/TPINT/pelis.html">SUSPENSO</a></li>
-                <li class="Categoria"><a class="buttons__secondary"
                         href="file:///C:/Users/pc/TPINT/pelis.html">ACCIÓN</a></li>
                 <li class="Categoria"><a class="buttons__secondary" href="file:///C:/Users/pc/TPINT/pelis.html">CIENCIA
                         FICCIÓN</a></li>
@@ -58,8 +56,6 @@
                         href="file:///C:/Users/pc/TPINT/pelis.html">COMEDIA</a></li>
                 <li class="Categoria"><a class="buttons__secondary"
                         href="file:///C:/Users/pc/TPINT/pelis.html">DRAMA</a></li>
-                <li class="Categoria"><a class="buttons__secondary"
-                        href="file:///C:/Users/pc/TPINT/pelis.html">ROMANCE</a></li>
                 <li class="Categoria"><a class="buttons__secondary"
                         href="file:///C:/Users/pc/TPINT/pelis.html">DOCUMENTAL</a></li>
             </ul>
@@ -76,32 +72,82 @@
 
     <script src="json-data/peliculas.js"></script>
 
-    <script>
-        const peliculas = DATA_PELICULAS;
-        const contenedor = document.getElementById("contenedorPeliculas");
+<script>
+  const peliculasJSON = localStorage.getItem("peliculas");
+  const peliculas = peliculasJSON ? JSON.parse(peliculasJSON) : DATA_PELICULAS;
 
-        peliculas.forEach((pelicula, index) => {
-            const card = document.createElement("div");
-            card.className = "TarjetaPelicula";
+  const contenedor = document.getElementById("contenedorPeliculas");
+  const inputBusqueda = document.getElementById("Busqueda");
+  const botonesCategorias = document.querySelectorAll(".ListaCategorias .Categoria");
 
-            card.innerHTML = `
-    <a href="DetallePeli.html?id=${index}">
-      <img class="PosterContenidos" src="${pelicula.portadaJPG}" alt="${pelicula.titulo}">
-    </a>
-    <ul class="CardInfo">
-      <li>${pelicula.rating}</li>
-      <li>${pelicula.estreno}</li>
-      <li>${pelicula.duracion} mins</li>
-      <li>${pelicula.clasificacion}</li>
-    </ul>
-  `;
+  let generoActivo = "";
+  let nombreBuscado = "";
 
-            contenedor.appendChild(card);
-        });
-    </script>
+  function renderPeliculas(filtradas) {
+    contenedor.innerHTML = "";
+
+    if (filtradas.length === 0) {
+      contenedor.innerHTML = "<p>No se encontraron resultados.</p>";
+      return;
+    }
+
+    filtradas.forEach((pelicula, index) => {
+      const card = document.createElement("div");
+      card.className = "Tarjetas";
+      card.innerHTML = `
+        <a href="DetallePeli.html?id=${index}">
+          <img class="PosterContenidos" src="${pelicula.portadaJPG}" alt="${pelicula.titulo}">
+        </a>
+        <ul class="CardInfo">
+          <li>${pelicula.rating}</li>
+          <li>${pelicula.estreno}</li>
+          <li>${pelicula.duracion} min</li>
+          <li>${pelicula.clasificacion}</li>
+        </ul>
+      `;
+      contenedor.appendChild(card);
+    });
+  }
+
+  function filtrarPeliculas() {
+    let resultado = peliculas;
+
+    if (generoActivo) {
+      resultado = resultado.filter(p => p.genero.toLowerCase().includes(generoActivo));
+    }
+
+    if (nombreBuscado) {
+      resultado = resultado.filter(p => p.titulo.toLowerCase().includes(nombreBuscado));
+    }
+
+    renderPeliculas(resultado);
+  }
+
+  // Evento: filtro por texto
+  inputBusqueda.addEventListener("input", (e) => {
+    nombreBuscado = e.target.value.toLowerCase();
+    filtrarPeliculas();
+  });
+
+  // Evento: filtro por categoría
+  botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const categoria = boton.textContent.trim().toLowerCase();
+      generoActivo = categoria;
+      filtrarPeliculas();
+    });
+  });
+
+  // Mostrar todo al iniciar
+  renderPeliculas(peliculas);
+</script>
 
     <footer class="footer-login">
         <p>Creado por Marcos Diaz, Alejo Gonzalez, Franco Nicolas Perez, Nicolas Reynoso </p>
+    </footer>
+
 </body>
 
 </html>

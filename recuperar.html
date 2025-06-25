@@ -26,14 +26,14 @@
 
 
         <article class="recuperoForm">
-            <form action="index.html" class="recuperoForm">
+            <form class="recuperoForm" >
                 <h2 class="tituloRecupero">RECUPERAR</h2>
                 <label for="correoElectronico">Ingrese su correo electronico</label><br>
                 <input type="email" name="correoElectronico" id="correoElectronico" placeholder="Correo electronico"
                 required><br>
                 <label for="usuario">Nombre de usuario</label><br>
                 <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" required><br>
-                <button type="submit" action="index.html" class="btnRecuperar">Recuperar Contraseña</button>
+                <button type="submit" action="index.html" class="btnRecuperar" id="btnRecuperar" disabled>Recuperar Contraseña</button>
                 <button type="submit"> <a href="index.html">Cancelar</a> </button>
             </form>
         </article>
@@ -45,5 +45,5 @@
 
 
 </body>
-
+<script src="login.js"></script>
 </html>

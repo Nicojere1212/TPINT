@@ -68,41 +68,20 @@
 
   <div class="similares">
     <h3>Similares</h3>
-    <ul>
-      <li>
-        <a href="DetallePeli.html">
-          <img src="https://pics.filmaffinity.com/the_matrix-155050517-large.jpg" alt="Matrix">
-        </a>
-      </li>
-      <li>
-        <a href="DetallePeli.html">
-          <img
-            src="https://a.ltrbxd.com/resized/film-poster/3/4/8/9/1/4/348914-the-batman-0-2000-0-3000-crop.jpg?v=ec12a8b7ce"
-            alt="The Batman">
-        </a>
-      </li>
-      <li>
-        <a href="DetallePeli.html">
-          <img
-            src="https://a.ltrbxd.com/resized/sm/upload/78/y5/zg/ej/oefdD26aey8GPdx7Rm45PNncJdU-0-1000-0-1500-crop.jpg?v=2d0ce4be25"
-            alt="Batman: El caballero oscuro">
-        </a>
-      </li>
-      <li>
-        <a href="DetallePeli.html">
-          <img
-            src="https://a.ltrbxd.com/resized/sm/upload/7s/m2/bw/d0/caoYMcjUamGoBVy65i1AHJBvdzw-0-1000-0-1500-crop.jpg?v=88d9d6cce4"
-            alt="El Resplandor">
-        </a>
-      </li>
-    </ul>
+    <div class="carrusel-contenedor">
+            <button class="flecha izquierda" id="btnIzquierda">&#10094;</button>
+            <div class="carrusel" id="carruselSimilares"></div>
+            <button class="flecha derecha" id="btnDerecha">&#10095;</button>
+        </div>
   </div>
 
+  <script src="json-data/peliculas.js"></script>
+  <script src="JavaScript/Peliculas.js"></script>
 
   <footer class="footer">
         <p>Creado por Marcos Diaz, Alejo Gonzalez, Franco Nicolas Perez, Nicolas Reynoso  </p>
-        <script src="json-data/peliculas.js"></script>
-        <script src="JavaScript/Peliculas.js"></script>
+  </footer>
+
 </body>
 
 </html>

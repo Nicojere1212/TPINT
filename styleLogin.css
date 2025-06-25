@@ -159,41 +159,32 @@ body {
 
 /* CREAR USUARIO STYLES */
 
-.crearContainer {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    color: black;
-}
 
 .registrarseForm {
-    top: 15%;
-    height: 100%;
+    color: black;
+    display: grid;
+    background-color: #ffffff;
+    padding: 5%;
+    font-size: 24px;
+
+}
+
+#formCrearUsuario {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-    padding: 10%;
-    font-size: 24px;
-    background-color: aliceblue;
+        gap: 2rem;
 }
 
 
-.crearLoginIzq form {
+.crearLoginIzq {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(4, 2fr);
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
 }
 
 .crearLoginDer{
     display: grid;
     gap: 1rem;
-}
-.btnRegContainer {
-    display: flex;
-    justify-content: end;
-    align-items: center;
 }
 
 
@@ -205,12 +196,14 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     border-radius: 5px;
+    font-family: "Poppins", sans-serif;
 }
+
 
 .btn-registrarse a{
     text-decoration: none;
     color: white;
-    font-family: "Poppins", sans-serif;
+    
 }
 
 .logoNav {
@@ -286,6 +279,8 @@ input[type="password"] {
 
 }
 
+
+
 /* ----------- Estilos para celular (<= 600px) ----------- */
 @media screen and (max-width: 600px) {
     .nav-unflix h1 {
@@ -339,6 +334,22 @@ input[type="password"] {
     .footer-login {
         font-size: 12px;
     }
+
+      #formCrearUsuario {
+    grid-template-columns: 1fr;
+    padding: 10%;
+  }
+
+  .crearLoginIzq,
+  .crearLoginDer {
+    gap: 1.5rem;
+  }
+
+  .btn-registrarse,
+  .cancelarButton {
+    width: 100%;
+  }
+
 }
 
 

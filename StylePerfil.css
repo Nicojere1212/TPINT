@@ -109,12 +109,15 @@ a {
 }
 
 @media screen and (max-width: 1024px) {
-    .ContainerForm {
-        grid-template-columns: 1fr;
+        .ContainerForm {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        font-size: 1.3rem;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
      body{
 
      }

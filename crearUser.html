@@ -21,21 +21,14 @@
                 <div class="logoNav">
                     <img src="img/icons/smoke.png" alt="logo.png">
                 </div>
-                 Pucho-Flix </h1>
+                Pucho-Flix
+            </h1>
         </nav>
-
         <article class="registrarseForm">
-
-
-
-
-            <article class="crearLoginIzq">
-
-
-
-                <form action="home.html">
+            <form id="formCrearUsuario" action="home.html">
+                <div class="crearLoginIzq">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                     <label for="apellido">Apellido</label>
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
                     <label for="correoElectronico">Correo electronico</label>
@@ -48,49 +41,51 @@
                     <label for="confirmarPassword">Confirmar contraseña</label>
                     <input type="password" name="confirmarPassword" id="confirmarPassword"
                         placeholder="Confirmar contraseña" required>
-            </article>
-            <article class="crearLoginDer">
-                <span>Método de pago</span>
-                <div class="LabelsRadio">
-                    <input type="radio" id="Tarjeta" name="FormaPago" value="Tarjeta" required>
-                    <label for="Tarjeta">Tarjeta de crédito</label><br>
                 </div>
-                <div class="SecondInputs">
-                    <input type="text" placeholder="Numero de Tarjeta" id="CardNumber">
-                    <input type="text" placeholder="CVV" id="CVV">
-                </div>
-                <div class="LabelsRadio">
-                    <input type="radio" id="Cupon" name="FormaPago" value="Cupon" required>
-                    <label for="Cupon">Cupón de Pago</label><br>
-                </div>
-                <div class="SecondInputs">
-                    <input type="checkbox" name="cash" id="PagoFacil">
-                    <label for="PagoFacil">Pago Fácil</label>
-                    <input type="checkbox" name="cash" id="Rapipago">
-                    <label for="Rapipago">Rapipago</label>
-                </div>
-                <div class="LabelsRadio">
-                    <input type="radio" id="Transferencia" name="FormaPago">
-                    <label for="Transferencia">Transferencia Bancaria</label><br><br>
-                    <span class="SecondInputs">ALIAS: Profe.Tenga.Piedad.mp</span>
-                </div>
-            </article>
+                <div class="crearLoginDer">
+                    <span>Método de pago</span>
+                   
+                    <div class="LabelsRadio">
+                        <input type="radio" id="Tarjeta" name="FormaPago" value="Tarjeta" required>
+                        <label for="Tarjeta">Tarjeta de crédito</label><br>
+                    </div>
+                    <div class="SecondInputs">
+                        <input type="text" placeholder="Numero de Tarjeta" id="CardNumber">
+                        <input type="text" placeholder="CVV" id="CVV">
+                    </div>
+                    <div class="LabelsRadio">
+                        <input type="radio" id="Cupon" name="FormaPago" value="Cupon" required>
+                        <label for="Cupon">Cupón de Pago</label><br>
+                    </div>
+                    <div class="SecondInputs">
+                        <input type="checkbox" name="cash" id="PagoFacil">
+                        <label for="PagoFacil">Pago Fácil</label>
+                        <input type="checkbox" name="cash" id="Rapipago">
+                        <label for="Rapipago">Rapipago</label>
+                    </div>
+                    <div class="LabelsRadio">
+                        <input type="radio" id="Transferencia" name="FormaPago">
+                        <label for="Transferencia">Transferencia Bancaria</label><br><br>
+                        <span class="SecondInputs">ALIAS: Profe.Tenga.Piedad.mp</span>
+                    </div>
+                    <button class="btn-registrarse" id="btn-registrarse" type="submit" action="home.html" disabled>
+                        Registrarse</button>
+                    <button class="cancelarButton"><a href="index.html">Cancelar</a></button>
 
-            <div class="btnRegContainer">
-                <button class="btn-registrarse" type="submit" > Registrarse</button>
-                <button class="cancelarButton"><a href="index.html">Cancelar</a></button>
-
-            </div>
+                </div>
             </form>
         </article>
 
+
     </main>
     <footer class="footer-login">
-        <p>Creado por Marcos Diaz, Alejo Gonzalez, Franco Nicolas Perez, Nicolas Reynoso  </p>
+        <p>Creado por Marcos Diaz, Alejo Gonzalez, Franco Nicolas Perez, Nicolas Reynoso </p>
     </footer>
 
 
 
 </body>
+
+<script src="crearUser.js"></script>
 
 </html>

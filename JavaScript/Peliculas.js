@@ -33,8 +33,13 @@ function AgregarContenido(numeroDePelicula) {
         const iframe = peliculas[peliculaSeleccionada].iframe;
         document.getElementById("iframe").src = iframe;
 
-        const linkComenzar = peliculas[peliculaSeleccionada].iframe;
-        document.getElementById("linkComenzar").setAttribute("onclick", "window.open('https://www.youtube.com/watch?v=q9BOtSBq-00', '_blank')");
+        const linkComenzar = peliculas[peliculaSeleccionada].linkComenzar;
+        const botonComenzar = document.getElementById("linkComenzar");
+
+        // Abre la pelicula en una pesta a nueva
+        botonComenzar.onclick = () => {
+            window.open(linkComenzar, "_blank");
+        };
 
         //cargar actores
 
@@ -74,6 +79,41 @@ function AgregarContenido(numeroDePelicula) {
     } catch (error) {
         console.error("Error al generar contenido" + error);
     }
+
+    const contenedorCarrusel = document.getElementById("carruselSimilares");
+    contenedorCarrusel.innerHTML = ""; // Limpia por si recargás
+
+    // Seleccionar hasta 5 peliculas distintas a la actual
+    const peliculasSimilares = peliculas.filter((_, i) => i !== peliculaSeleccionada);
+    const maxSimilares = Math.min(5, peliculasSimilares.length);
+    const mezcladas = peliculasSimilares.sort(() => Math.random() - 0.5).slice(0, maxSimilares);
+
+    mezcladas.forEach((pelicula) => {
+    const indexOriginal = peliculas.findIndex(p => p.titulo === pelicula.titulo);
+
+    const link = document.createElement("a");
+    link.href = `DetallePeli.html?id=${indexOriginal}`;
+
+    const imagen = document.createElement("img");
+    imagen.src = pelicula.portadaJPG;
+    imagen.alt = pelicula.titulo;
+
+    link.appendChild(imagen);
+    contenedorCarrusel.appendChild(link);
+});
+
+    // Flechas de navegación
+    const carrusel = document.getElementById("carruselSimilares");
+    const btnIzquierda = document.getElementById("btnIzquierda");
+    const btnDerecha = document.getElementById("btnDerecha");
+
+    btnIzquierda.addEventListener("click", () => {
+        carrusel.scrollBy({ left: -300, behavior: "smooth" });
+    });
+
+    btnDerecha.addEventListener("click", () => {
+        carrusel.scrollBy({ left: 300, behavior: "smooth" });
+    });
 }
 
 // Obtener el valor de "id" desde la URL
